@@ -1,0 +1,10 @@
+pdfs/*
+!pdfs/.gitkeep
+
+__pycache__/
+*.py[cod]
+
+.DS_Store
+Thumbs.db
+.vscode/
+.obsidian/workspace*.json
