@@ -151,11 +151,9 @@ def main() -> int:
         f"date_read: {date_read}\n"
         f"---\n\n"
         f"# {title}\n\n"
-        f"> **TL;DR:** \n\n"
-        f"## Key Contributions\n- \n\n"
-        f"## Method\n- \n\n"
-        f"## Results & Limitations\n- \n\n"
-        f"## Takeaways\n- \n\n"
+        f"\n\n"
+        f"## Takeaways\n\n"
+        f"\n\n"
         f"## Citation\n```bibtex\n{bib_entry}\n```\n"
     )
 

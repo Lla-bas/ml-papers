@@ -9,19 +9,11 @@ date_read: 2026-11-25
 
 # Paper Title
 
-> **TL;DR:** One-sentence summary of the paper's core idea and why it matters.
-
-## Key Contributions
-- 
-
-## Method
-- 
-
-## Results & Limitations
-- 
+Brief summary paragraph of what the paper does and why it matters.
 
 ## Takeaways
-- 
+
+Main thoughts and what stuck after reading.
 
 ## Citation
 ```bibtex
