@@ -68,7 +68,7 @@ def fetch_arxiv_metadata(arxiv_id: str) -> dict[str, str]:
         "bib_authors": " and ".join(authors_list) or short_authors,
         "year": year,
         "venue": "arXiv",
-        "url": f"https://arxiv.org/abs/{arxiv_id}",
+        "url": f"https://arxiv.org/pdf/{arxiv_id}.pdf",
     }
 
 
@@ -108,7 +108,7 @@ def main() -> int:
             defaults.update(fetch_arxiv_metadata(arxiv_id))
         except (urllib.error.URLError, ValueError, TimeoutError) as exc:
             print(f"Could not fetch from arXiv ({exc}); falling back to manual entry.")
-            defaults["url"] = f"https://arxiv.org/abs/{arxiv_id}"
+            defaults["url"] = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
 
     title = prompt("Title", defaults["title"])
     if not title:

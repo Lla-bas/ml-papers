@@ -3,7 +3,7 @@ title: "Paper Title"
 authors: "First Author et al."
 year: 2026
 venue: "NeurIPS / ICML / ICLR / arXiv"
-url: "https://arxiv.org/abs/XXXX.XXXXX"
+url: "https://arxiv.org/pdf/XXXX.XXXXX.pdf"
 date_read: 2026-11-25
 ---
 
@@ -29,6 +29,6 @@ date_read: 2026-11-25
   title   = {Paper Title},
   author  = {First Author and Second Author},
   year    = {2026},
-  url     = {https://arxiv.org/abs/XXXX.XXXXX}
+  url     = {https://arxiv.org/pdf/XXXX.XXXXX.pdf}
 }
 ```

@@ -91,7 +91,7 @@ def render_index(papers: list[dict[str, object]]) -> str:
         url = str(p.get("url", "")).strip()
         title_cell = f"[**{title}**]({note_path})"
         if url:
-            title_cell += f" · [paper]({url})"
+            title_cell += f" · [download]({url})"
 
         authors = escape_md(str(p.get("authors", "—")))
         venue_parts = [str(p.get("venue", "")).strip(), str(p.get("year", "")).strip()]
