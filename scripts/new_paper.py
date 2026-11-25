@@ -12,7 +12,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from build_index import update_readme
+from build_index import update_index
 
 ROOT = Path(__file__).resolve().parent.parent
 NOTES_DIR = ROOT / "notes"
@@ -165,10 +165,10 @@ def main() -> int:
     with BIB_PATH.open("a", encoding="utf-8") as bib_file:
         bib_file.write(f"\n{bib_entry}\n")
 
-    count = update_readme()
+    count = update_index()
     print(f"\nCreated note: {note_path.relative_to(ROOT)}")
     print(f"Appended BibTeX entry '{cite_key}' to references.bib")
-    print(f"Updated README.md ({count} paper(s) indexed).")
+    print(f"Updated PAPERS.md ({count} paper(s) indexed).")
     return 0
 
 

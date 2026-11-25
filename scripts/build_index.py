@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild the paper index table in README.md from notes/*.md frontmatter."""
+"""Rebuild the paper index table in PAPERS.md from notes/*.md frontmatter."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 NOTES_DIR = ROOT / "notes"
-README_PATH = ROOT / "README.md"
+INDEX_PATH = ROOT / "PAPERS.md"
 
 START_MARKER = "<!-- PAPERS:START -->"
 END_MARKER = "<!-- PAPERS:END -->"
@@ -103,16 +103,16 @@ def render_index(papers: list[dict[str, object]]) -> str:
     return "\n".join(lines)
 
 
-def update_readme() -> int:
+def update_index() -> int:
     papers = collect_papers()
     rendered = render_index(papers)
     block = f"{START_MARKER}\n{rendered}\n{END_MARKER}"
 
-    if not README_PATH.exists():
-        README_PATH.write_text(f"# ML Papers\n\n{block}\n", encoding="utf-8")
+    if not INDEX_PATH.exists():
+        INDEX_PATH.write_text(f"# Papers\n\n{block}\n", encoding="utf-8")
         return len(papers)
 
-    content = README_PATH.read_text(encoding="utf-8")
+    content = INDEX_PATH.read_text(encoding="utf-8")
     pattern = re.compile(
         rf"{re.escape(START_MARKER)}.*?{re.escape(END_MARKER)}", re.DOTALL
     )
@@ -121,10 +121,10 @@ def update_readme() -> int:
     else:
         new_content = content.rstrip() + f"\n\n{block}\n"
 
-    README_PATH.write_text(new_content, encoding="utf-8")
+    INDEX_PATH.write_text(new_content, encoding="utf-8")
     return len(papers)
 
 
 if __name__ == "__main__":
-    count = update_readme()
-    print(f"Updated README.md with {count} paper(s).")
+    count = update_index()
+    print(f"Updated PAPERS.md with {count} paper(s).")
